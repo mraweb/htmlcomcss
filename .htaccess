@@ -1,0 +1,8 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?pg=$1
+
+RewriteCond %{HTTP_HOST} ^htmlcomcss\.com\.br
+RewriteRule ^(.*)$ http://www.htmlcomcss.com.br/$1 [R=301,L]
