@@ -9,6 +9,7 @@
 
             <section class="formulario left">
                 <form action="resposta-contato" method="post" id="formID">
+                    <input type="hidden" name="valida" id="valida" />
                     <ul>
                         <li>
                             <label for="nome">Nome*:</label>

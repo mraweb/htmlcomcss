@@ -11,6 +11,7 @@
             
             <section class="formulario left">
                 <form action="resposta-orca" method="post" id="formID" enctype="multipart/form-data">
+                    <input type="hidden" name="valida" id="valida" />
                     <ul>
                         <li>
                             <label for="nome">Nome*:</label>

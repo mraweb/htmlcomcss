@@ -10,6 +10,7 @@ if($_POST["nome"] !== ""){
 	
 $arquivo = $_FILES["arquivo"];
 
+if($_POST["valida"] == ""){
 require_once('phpmailer/class.phpmailer.php');
 	$phpmail = new PHPMailer();
     $phpmail->IsSMTP(); // envia por SMTP
@@ -38,11 +39,14 @@ require_once('phpmailer/class.phpmailer.php');
 	$phpmail->Body .= "<strong>Mensagem:</strong> ".nl2br($_POST["msg"])."<br />";
 	$phpmail->AddAttachment($arquivo['tmp_name'], $arquivo['name']);
 
-    $send = $phpmail->Send();
+    if ( !strpos($_SERVER['HTTP_USER_AGENT'],"Googlebot") && isset($_POST['nome']) && $_POST['nome'] !== ''){
+    	$send = $phpmail->Send();
+	}
+}
 }
 }
 if($_GET["pg"] == "resposta-contato"){
-if($_POST["nome"] !== ""){
+if($_POST["valida"] == ""){
 require_once('phpmailer/class.phpmailer.php');
 	$phpmail = new PHPMailer();
     $phpmail->IsSMTP(); // envia por SMTP
@@ -68,7 +72,9 @@ require_once('phpmailer/class.phpmailer.php');
 	$phpmail->Body .= "<strong>Assunto:</strong> ". $_POST["assunto"]."<br />";	
 	$phpmail->Body .= "<strong>Mensagem:</strong> ".nl2br($_POST["msg"])."<br />";
 
-    $send = $phpmail->Send();
+    if ( !strpos($_SERVER['HTTP_USER_AGENT'],"Googlebot") && isset($_POST['nome']) && $_POST['nome'] !== ''){
+    	$send = $phpmail->Send();
+	}
 }
 }
 ?>
