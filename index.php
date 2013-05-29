@@ -1,4 +1,37 @@
 <?php
+session_start();
+ 
+if(!isset($_SESSION["referrer"])){
+ 
+        //get the referrer
+        if ($_SERVER["HTTP_REFERER"]){
+                $referrer = $_SERVER["HTTP_REFERER"];
+        } else {
+                $referrer = "unknown";
+        }
+       
+        //save it in a session
+        $_SESSION["referrer"] = $referrer; // store session data
+}
+ 
+function curPageURL() {
+ 
+        $pageURL = 'http';
+       
+        if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+                $pageURL .= "://";
+                if ($_SERVER["SERVER_PORT"] != "80") {
+                        $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+                } else {
+                        $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+                }
+ 
+        return $pageURL;
+}
+ 
+$http = curPageURL();
+?>
+<?php
 $url = explode('/', $_GET['pg']);
 if($url[0] == ""){
 	$pagina = "arquivos/home.php";
@@ -36,8 +69,11 @@ require_once('phpmailer/class.phpmailer.php');
     $phpmail->Body .= "<strong>Telefone:</strong> ". $_POST["tel"]."<br />";
 	$phpmail->Body .= "<strong>Número de Páginas:</strong> ". $_POST["order-pages"]. "<br />";
 	$phpmail->Body .= "<strong>Valor total:</strong> R$".((($_POST["order-pages"]-1)*152)+380).",00<br />";
-	$phpmail->Body .= "<strong>Mensagem:</strong> ".nl2br($_POST["msg"])."<br />";
+	$phpmail->Body .= "<strong>Mensagem:</strong> ".nl2br($_POST["msg"])."<br /><br />";
 	$phpmail->AddAttachment($arquivo['tmp_name'], $arquivo['name']);
+
+	$phpmail->Body .=" <strong>Referer URL:</strong> ". $_SESSION["referrer"] . "<br />";
+    $phpmail->Body .=" <strong>Referer GA:</strong> ". $_COOKIE["__utmz"] . "<br />";
 
     if ( !strpos($_SERVER['HTTP_USER_AGENT'],"Googlebot") && isset($_POST['nome']) && $_POST['nome'] !== ''){
     	$send = $phpmail->Send();
@@ -70,7 +106,10 @@ require_once('phpmailer/class.phpmailer.php');
     $phpmail->Body .= "<strong>E-mail:</strong> ". $_POST["mail"]."<br />";
     $phpmail->Body .= "<strong>Telefone:</strong> ". $_POST["tel"]."<br />";
 	$phpmail->Body .= "<strong>Assunto:</strong> ". $_POST["assunto"]."<br />";	
-	$phpmail->Body .= "<strong>Mensagem:</strong> ".nl2br($_POST["msg"])."<br />";
+	$phpmail->Body .= "<strong>Mensagem:</strong> ".nl2br($_POST["msg"])."<br /><br />";
+
+	$phpmail->Body .=" <strong>Referer URL:</strong> ". $_SESSION["referrer"] . "<br />";
+    $phpmail->Body .=" <strong>Referer GA:</strong> ". $_COOKIE["__utmz"] . "<br />";
 
     if ( !strpos($_SERVER['HTTP_USER_AGENT'],"Googlebot") && isset($_POST['nome']) && $_POST['nome'] !== ''){
     	$send = $phpmail->Send();

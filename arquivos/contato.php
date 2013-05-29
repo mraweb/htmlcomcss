@@ -9,6 +9,7 @@
 
             <section class="formulario left">
                 <form action="resposta-contato" method="post" id="formID">
+                    <input type="hidden" name="paginaAtual" value="<?php echo curPageURL(); ?>" id="paginaAtual" />
                     <input type="hidden" name="valida" id="valida" />
                     <ul>
                         <li>
