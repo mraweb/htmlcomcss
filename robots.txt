@@ -1,0 +1,5 @@
+User-agent: *
+
+Disallow: /projetos/
+Disallow: /blog/
+Disallow: /ass/

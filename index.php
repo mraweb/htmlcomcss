@@ -59,7 +59,7 @@ require_once('phpmailer/class.phpmailer.php');
     $phpmail->FromName = $_POST["nome"];
 	
 	$phpmail->AddAddress('marcelo@htmlcomcss.com.br', 'HTMLcomCSS');//destinario
-	$phpmail->AddBcc('pettrus.vaz@htmlcomcss.com.br', 'HTMLcomCSS');//destinario
+	//$phpmail->AddBcc('pettrus.vaz@htmlcomcss.com.br', 'HTMLcomCSS');//destinario
 	$phpmail->AddReplyTo($_POST["mail"], $_POST["nome"]);
 	
 	$phpmail->Subject = "Orçamento enviado pelo site HTMLcomCSS";
@@ -97,7 +97,7 @@ require_once('phpmailer/class.phpmailer.php');
     $phpmail->FromName = $_POST["nome"];
 	
 	$phpmail->AddAddress('marcelo@htmlcomcss.com.br', 'HTMLcomCSS');//destinario
-	$phpmail->AddBcc('pettrus.vaz@htmlcomcss.com.br', 'HTMLcomCSS');//destinario
+	//$phpmail->AddBcc('pettrus.vaz@htmlcomcss.com.br', 'HTMLcomCSS');//destinario
 	$phpmail->AddReplyTo($_POST["mail"], $_POST["nome"]);
 	
 	$phpmail->Subject = "Dados enviados pelo Contato do site HTMLcomCSS";
@@ -123,78 +123,78 @@ require_once('phpmailer/class.phpmailer.php');
 <meta charset="utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <?php if($_GET["pg"] == ""){ ?>
-<title>HTML com CSS - Desenvolvimento Web</title>
-<meta name="description" content="A HTML com CSS desenvolve seu site com o que há de mais moderno. Sites em HTML 5 e CSS3, JQUERY, PHP, Wordpress, Blog e muito mais." />
+<title>HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
+<meta name="description" content="A HTMLcomCSS desenvolve seu site com o que há de mais moderno. Sites em HTML 5 e CSS3, JQUERY, PHP, Wordpress, Blog e muito mais." />
 <link rel="canonical" href="http://www.htmlcomcss.com.br/" />
 
 <?php }elseif($_GET["pg"] == "empresa"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/empresa" />
-<title>Empresa | HTML com CSS - Desenvolvimento Web</title>
+<title>Empresa | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 <meta name="description" content="A HTMLcomCSS é uma empresa que faz a conversão do seu layout para html, e somos altamente preocupados com a qualidade, essa é nossa virtude." />
 
 <?php }elseif($_GET["pg"] == "servicos"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/servicos" />
-<title>Serviços | HTML com CSS - Desenvolvimento Web</title>
+<title>Serviços | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 <meta name="description" content="A HTMLcomCSS fornece serviços de Criação de Sites, Otimização de Sites, Wordpress, Criação de conteúdo, Web Design e Desenvolvimento Front-End, tudo com máxima qualidade." />
 
 <?php }elseif($_GET["pg"] == "criacao-de-sites"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/criacao-de-sites" />
-<title>Criação de Sites | HTML com CSS - Desenvolvimento Web</title>
-<meta name="description" content="A HTMLcomCSS desenvolve seu projeto desde o início, layout e desenvolvimento com excelentes profissionais do mercado." />
+<title>Criação de Sites | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
+<meta name="description" content="Criação de Sites dentro dos padrões web, de acordo com as especificações da W3C. Acesse nosso site e veja nossas condições." />
 
 <?php }elseif($_GET["pg"] == "desenvolvimento-front-end"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/desenvolvimento-front-end" />
-<title>Desenvolvimento Front-End | HTML com CSS - Desenvolvimento Web</title>
+<title>Desenvolvimento Front-End | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 <meta name="description" content="O foco da HTMLcomCSS é atender agências sem equipe web e designers que precisem desenvolver seus jobs" />
 
 <?php }elseif($_GET["pg"] == "wordpress"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/wordpress" />
-<title>Wordpress | HTML com CSS - Desenvolvimento Web</title>
+<title>Wordpress | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 <meta name="description" content="A HTMLcomCSS implementa seu projeto com a mais poderosa ferramenta CMS existente no mercado, wordpress." />
 
 <?php }elseif($_GET["pg"] == "webdesign"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/webdesign" />
-<title>Web Design | HTML com CSS - Desenvolvimento Web</title>
+<title>Web Design | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 <meta name="description" content="A HTMLcomCSS fornece a criação do layout do seu site, se quer impactar o mercado, faça seu layout conosco." />
 
 <?php }elseif($_GET["pg"] == "criacao-de-conteudo"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/criacao-de-conteudo" />
-<title>Criação de Conteúdo | HTML com CSS - Desenvolvimento Web</title>
+<title>Criação de Conteúdo | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 <meta name="description" content="A HTMLcomCSS faz a criação do seu conteúdo, nossos profissionais são treinados para otimizar o texto e aproveitar o máximo suas qualidades." />
 
 <?php }elseif($_GET["pg"] == "otimizacao-de-sites"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/otimizacao-de-sites" />
-<title>Otimização de Sites | HTML com CSS - Desenvolvimento Web</title>
+<title>Otimização de Sites | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 <meta name="description" content="Você quer se destacar na web, para isso precisa aparecer, e a Otimização do seu Site é essencial para isso." />
 
 <?php }elseif($_GET["pg"] == "orcamento"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/orcamento" />
-<title>Orçamento - Desenvolvimento Front-End | HTML com CSS - Desenvolvimento Web</title>
+<title>Orçamento - Desenvolvimento Front-End | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 
 <?php }elseif($_GET["pg"] == "resposta-orca"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/resposta-orca" />
-<title>Orçamento Enviado - Desenvolvimento Front-End | HTML com CSS - Desenvolvimento Web</title>
+<title>Orçamento Enviado - Desenvolvimento Front-End | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 
 <?php }elseif($_GET["pg"] == "faq"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/faq" />
-<title>FAQ | HTML com CSS - Desenvolvimento Web</title>
+<title>FAQ | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 
 <?php }elseif($_GET["pg"] == "portfolio"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/portfolio" />
-<title>Portfolio | HTML com CSS - Desenvolvimento Web</title>
+<title>Portfolio | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 <meta name="description" content="A HTMLcomCSS disponibiliza alguns dos nossos clientes para que você tenha uma idéia breve de como trabalhamos, acesse nosso site." />
 
 <?php }elseif($_GET["pg"] == "termos-de-servico"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/servicos" />
-<title>Termos de Serviço | HTML com CSS - Desenvolvimento Web</title>
+<title>Termos de Serviço | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 
 <?php }elseif($_GET["pg"] == "contato"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/contato" />
-<title>Contato | HTML com CSS - Desenvolvimento Web</title>
+<title>Contato | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 
 <?php }elseif($_GET["pg"] == "resposta-contato"){ ?>
 <link rel="canonical" href="http://www.htmlcomcss.com.br/resposta-contato" />
-<title>Contato Enviado | HTML com CSS - Desenvolvimento Web</title>
+<title>Contato Enviado | HTMLcomCSS - Criação de Sites e Otimização de Sites</title>
 <?php } ?>
 
 <link rel="stylesheet" type="text/css" href="css/screen.css">
